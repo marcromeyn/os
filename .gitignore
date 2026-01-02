@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Obsidian
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/hotkeys.json
+.obsidian/plugins/*/data.json
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Trash
+.trash/
+
+# Claude Code
+.conductor/
+.claude/cache/
+.claude/settings.local.json
+CLAUDE.local.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Personal notes (users should add their own patterns)
+obsidian-claude-pkm-repo-outline.md
+twitter_thread_obsidian_claude_pkm.md
+
+# private/
+# personal/
