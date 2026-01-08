@@ -28,9 +28,7 @@ Manage your efforts by energy level. Move notes between folders as your focus sh
 
 > High energy efforts requiring your attention now.
 
-```base
-path: efforts/on
-```
+![[efforts/views/on.base]]
 
 ---
 
@@ -38,9 +36,7 @@ path: efforts/on
 
 > Steady efforts that need regular attention.
 
-```base
-path: efforts/ongoing
-```
+![[efforts/views/ongoing.base]]
 
 ---
 
@@ -48,9 +44,7 @@ path: efforts/ongoing
 
 > Ideas developing slowly with occasional attention.
 
-```base
-path: efforts/simmering
-```
+![[efforts/views/simmering.base]]
 
 ---
 
@@ -58,9 +52,7 @@ path: efforts/simmering
 
 > Potential future work, currently inactive.
 
-```base
-path: efforts/sleeping
-```
+![[efforts/views/sleeping.base]]
 
 ---
 
@@ -68,10 +60,7 @@ path: efforts/sleeping
 
 > Finished efforts kept for reference.
 
-```base
-path: efforts/archive
-limit: 10
-```
+![[efforts/views/archive.base]]
 
 ---
 

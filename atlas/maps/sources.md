@@ -13,41 +13,23 @@ A map of your reference materials: books, articles, videos, courses.
 
 ## All Sources
 
-```base
-path: atlas/sources
-```
+![[atlas/views/sources.base]]
 
 ---
 
 ## By Type
 
 ### Books
-
-```base
-path: atlas/sources
-filter: type = "book"
-```
+*Filter by `type: book` in the sources view above*
 
 ### Articles
-
-```base
-path: atlas/sources
-filter: type = "article"
-```
+*Filter by `type: article` in the sources view above*
 
 ### Videos
-
-```base
-path: atlas/sources
-filter: type = "video"
-```
+*Filter by `type: video` in the sources view above*
 
 ### Courses
-
-```base
-path: atlas/sources
-filter: type = "course"
-```
+*Filter by `type: course` in the sources view above*
 
 ---
 

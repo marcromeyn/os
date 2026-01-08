@@ -1,130 +1,87 @@
 ---
 name: daily-workflow
 description: Morning routine, midday check-in, and evening shutdown workflows. Structure daily planning, task review, and end-of-day reflection. Use for daily productivity routines.
-allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
 # Daily Workflow Skill
 
-Structured workflows for morning planning, midday check-ins, and evening shutdowns.
+Structured workflows for daily productivity in an ACE-framework vault.
 
-## Morning Routine (5-10 minutes)
+## Workflows
 
-### Automated Steps
-1. Create today's daily note (if not exists)
-2. Pull incomplete tasks from yesterday
-3. Review weekly goals for today's priority
-4. Surface any calendar events or deadlines
+### Morning Routine
 
-### Interactive Prompts
-- "What's your ONE thing for today?"
-- "What might get in the way?"
-- "How do you want to feel at end of day?"
+1. **Create/Open Daily Note**
+   - Check if `calendar/daily/YYYY-MM-DD.md` exists
+   - Create from `x/templates/daily.md` if needed
+   - Review yesterday's incomplete tasks
 
-### Morning Checklist
-- [ ] Daily note created
-- [ ] Yesterday's incomplete tasks reviewed
-- [ ] ONE priority identified
-- [ ] Time blocks set
-- [ ] Potential obstacles identified
+2. **Set Today's Focus**
+   - Identify ONE Big Thing for today
+   - Review active efforts (`efforts/on/`)
+   - Check calendar for meetings
 
-## Midday Check-in (2-3 minutes)
+3. **Plan Time Blocks**
+   - Morning: Deep work
+   - Midday: Meetings/collaboration
+   - Afternoon: Tasks/admin
+   - Evening: Reflection
 
-### Quick Review
-1. Check morning task completion
-2. Compare actual vs planned time use
-3. Assess energy level
-4. Identify afternoon priorities
+4. **Quick Inbox Check**
+   - Scan `+/notes/` for urgent items
+   - Note count for later processing
 
-### Adjustments
-- Reschedule incomplete morning tasks
-- Add urgent items that emerged
-- Reorder by current energy level
-- Note any blockers
+### Midday Check-in
 
-### Midday Questions
-- "How's your energy right now?"
-- "What's the most important thing for this afternoon?"
-- "What can you let go of today?"
+1. **Progress Review**
+   - Check morning tasks completed
+   - Adjust afternoon priorities
+   - Note any blockers
 
-## Evening Shutdown (5 minutes)
+2. **Energy Check**
+   - Physical energy level
+   - Mental clarity
+   - Adjust remaining tasks if needed
 
-### Capture
-1. Mark completed tasks with [x]
-2. Add notes and learnings
-3. Log energy levels (1-10)
-4. Record gratitude items
+### Evening Shutdown
 
-### Reflect
-- What went well today?
-- What could be better?
-- What did I learn?
-- What am I grateful for?
+1. **Capture Loose Ends**
+   - Any open items → `+/notes/`
+   - Incomplete tasks → note for tomorrow
 
-### Prepare
-1. Identify tomorrow's priority (preview)
-2. Move incomplete tasks to tomorrow or delete
-3. Commit changes to git (`/push`)
+2. **Daily Reflection**
+   - What went well?
+   - What could improve?
+   - What did I learn?
 
-### Shutdown Checklist
-- [ ] All tasks updated (done/moved/deleted)
-- [ ] Reflection completed
-- [ ] Tomorrow's priority identified
-- [ ] Changes committed
+3. **Tomorrow's Setup**
+   - Set tomorrow's ONE Big Thing
+   - Move completed tasks
+   - Clear mental space
 
-## Daily Note Sections
+## File Locations
 
-Standard daily note structure:
+- Daily notes: `calendar/daily/YYYY-MM-DD.md`
+- Template: `x/templates/daily.md`
+- Active efforts: `efforts/on/`
+- Inbox: `+/notes/`
 
-```markdown
-# {{date}}
+## Properties for Daily Notes
 
-## Focus
-> What's the ONE thing that would make today successful?
-
-## Time Blocks
-- 🌅 Morning (9-12):
-- ☀️ Afternoon (12-5):
-- 🌙 Evening (5+):
-
-## Tasks
-### Must Do Today
-- [ ]
-
-### Work
-- [ ]
-
-### Personal
-- [ ]
-
-## Notes
-[Capture thoughts, meeting notes, ideas]
-
-## Reflection
-- **Wins:**
-- **Challenges:**
-- **Learned:**
-- **Grateful for:**
-- **Energy:** /10
-- **Tomorrow's priority:**
+```yaml
+---
+date: YYYY-MM-DD
+tags:
+  - daily
+energy: 1-10
+mood: word
+focus: "ONE Big Thing"
+---
 ```
-
-## Time Block Strategies
-
-### Energy-Based
-- High energy tasks in morning
-- Administrative work after lunch
-- Creative work when naturally alert
-
-### Context-Based
-- Batch similar tasks together
-- Minimize context switching
-- Protect deep work blocks
 
 ## Integration
 
-Works with:
+Use with:
 - `/daily` command for note creation
-- `/push` command for end-of-day commit
+- Goal Aligner agent for alignment check
 - Productivity Coach for accountability
-- Goal Tracking skill for alignment

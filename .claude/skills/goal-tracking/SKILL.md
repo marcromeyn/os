@@ -1,127 +1,97 @@
 ---
 name: goal-tracking
-description: Track progress toward 3-year, yearly, monthly, and weekly goals. Calculate completion percentages, surface stalled goals, connect daily tasks to objectives. Use for goal reviews and progress tracking.
-allowed-tools: Read, Grep, Glob, Edit
+description: Track progress toward goals through efforts. Calculate completion percentages, surface stalled efforts, connect daily tasks to objectives. Use for goal reviews and progress tracking.
 ---
 
 # Goal Tracking Skill
 
-Track and manage the cascading goal system from long-term vision to daily tasks.
+Track progress through the ACE effort system.
 
-## Goal Hierarchy
+## Effort-Based Goal Tracking
 
+In the ACE framework, goals are tracked through **Efforts** - energy-based work items that flow between states:
+
+| State | Folder | Description |
+|-------|--------|-------------|
+| On | `efforts/on/` | Active focus - high energy |
+| Ongoing | `efforts/ongoing/` | Continuous - steady energy |
+| Simmering | `efforts/simmering/` | Back-burner - low energy |
+| Sleeping | `efforts/sleeping/` | Future - no energy |
+| Archive | `efforts/archive/` | Completed |
+
+## Progress Tracking
+
+### Effort Properties
+```yaml
+---
+date: YYYY-MM-DD
+tags: []
+energy: on|ongoing|simmering|sleeping
+area: life-area
+due: YYYY-MM-DD
+progress: 0-100
+---
 ```
-Goals/0. Three Year Goals.md   <- Vision (Life areas)
-    ↓
-Goals/1. Yearly Goals.md       <- Annual objectives
-    ↓
-Goals/2. Monthly Goals.md      <- Current month focus
-    ↓
-Goals/3. Weekly Review.md      <- Weekly planning
-    ↓
-Daily Notes/*.md               <- Daily tasks and actions
-```
 
-## Goal File Formats
+### Calculating Progress
 
-### Three Year Goals
+1. **Count efforts by state:**
+   - Active (on + ongoing)
+   - Inactive (simmering + sleeping)
+   - Completed (archive)
+
+2. **Track daily mentions:**
+   - Scan daily notes for effort links
+   - Calculate activity frequency
+
+3. **Identify stalls:**
+   - "On" efforts with no activity > 7 days
+   - "Ongoing" efforts with no activity > 14 days
+
+## Reports
+
+### Weekly Progress Report
 ```markdown
-## Life Areas
-- Career: [Vision statement]
-- Health: [Vision statement]
-- Relationships: [Vision statement]
-- Financial: [Vision statement]
-- Learning: [Vision statement]
-- Personal: [Vision statement]
+## Effort Progress - Week of [DATE]
+
+### Active Efforts (On)
+| Effort | Progress | Last Activity | Status |
+|--------|----------|---------------|--------|
+| [[effort]] | X% | YYYY-MM-DD | On track/Stalled |
+
+### Movement This Week
+- Completed: N efforts → archive
+- Started: N new efforts
+- State changes: [list]
+
+### Attention Needed
+- [Effort] - on track but no activity 5 days
+- [Effort] - consider moving to simmering
 ```
 
-### Yearly Goals
-```markdown
-## 2024 Goals
-- [ ] Goal 1 (XX% complete)
-- [ ] Goal 2 (XX% complete)
-- [x] Goal 3 (100% complete)
+### Effort Lifecycle
+```
+Idea captured → sleeping/
+  ↓ (ready to start)
+Activated → on/
+  ↓ (continuous)
+Routinized → ongoing/
+  ↓ (deprioritize)
+Paused → simmering/
+  ↓ (complete)
+Finished → archive/
 ```
 
-### Monthly Goals
-```markdown
-## This Month's Focus
-1. **Primary:** [Main focus]
-2. **Secondary:** [Supporting goal]
-3. **Stretch:** [If time permits]
+## Dashboard Integration
 
-### Key Results
-- [ ] Measurable outcome 1
-- [ ] Measurable outcome 2
-```
+Update `efforts/maps/dashboard.md` with:
+- Effort counts by state
+- Recent completions
+- Stalled effort warnings
 
-## Progress Calculation
+## Integration
 
-### Checklist-Based Goals
-```
-Progress = (Completed checkboxes / Total checkboxes) * 100
-```
-
-### Metric-Based Goals
-```
-Progress = (Current value / Target value) * 100
-```
-
-### Time-Based Goals
-```
-Progress = (Days elapsed / Total days) * 100
-```
-
-## Common Operations
-
-### View Goal Progress
-1. Read all goal files
-2. Parse checkbox completion rates
-3. Calculate overall and per-goal progress
-4. Identify stalled or at-risk goals
-
-### Update Goal Status
-1. Find goal in appropriate file
-2. Update checkbox or percentage
-3. Add date stamp for significant milestones
-4. Update related weekly review
-
-### Connect Task to Goal
-When adding tasks to daily notes:
-1. Identify which goal the task supports
-2. Add goal reference: `Supports: [[1. Yearly Goals#Goal Name]]`
-3. Use appropriate priority tag
-
-### Surface Stalled Goals
-1. Check last activity date for each goal
-2. Flag goals with no progress in 14+ days
-3. Suggest actions to restart momentum
-
-## Progress Report Format
-
-```markdown
-## Goal Progress Report
-
-### Overall: XX%
-
-### By Goal
-| Goal | Progress | Last Activity | Status |
-|------|----------|---------------|--------|
-| Goal 1 | 75% | 2 days ago | On Track |
-| Goal 2 | 30% | 14 days ago | Stalled |
-
-### This Week's Contributions
-- [Task] -> [[Goal 1]]
-- [Task] -> [[Goal 2]]
-
-### Recommended Focus
-1. [Stalled goal needs attention]
-2. [Nearly complete goal - finish it]
-```
-
-## Integration Points
-
-- Weekly review: Full progress assessment
-- Daily planning: Surface relevant goals
-- Monthly review: Adjust goals as needed
-- Quarterly review: Cascade from 3-year vision
+Use with:
+- Goal Aligner agent for deep analysis
+- Weekly Reviewer for regular check-ins
+- `/weekly` command for reviews

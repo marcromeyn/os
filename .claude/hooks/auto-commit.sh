@@ -22,17 +22,33 @@ if git diff --quiet && git diff --staged --quiet; then
     exit 0
 fi
 
-# Generate commit message based on file location
+# Generate commit message based on file location (ACE framework)
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M")
 
-if [[ "$MODIFIED_FILE" == *"Daily Notes"* ]]; then
-    MSG="Update daily note - $TIMESTAMP"
-elif [[ "$MODIFIED_FILE" == *"Goals"* ]]; then
-    MSG="Update goals - $TIMESTAMP"
-elif [[ "$MODIFIED_FILE" == *"Projects"* ]]; then
-    PROJECT=$(echo "$MODIFIED_FILE" | sed 's|.*/Projects/\([^/]*\)/.*|\1|')
-    MSG="Update project: $PROJECT - $TIMESTAMP"
-elif [[ "$MODIFIED_FILE" == *"Templates"* ]]; then
+if [[ "$MODIFIED_FILE" == *"calendar/daily"* ]]; then
+    MSG="Daily note update - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"calendar/periodic"* ]]; then
+    MSG="Periodic review - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"calendar/meetings"* ]]; then
+    MSG="Meeting notes - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"efforts/on"* ]]; then
+    EFFORT=$(basename "$MODIFIED_FILE" .md)
+    MSG="Update active effort: $EFFORT - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"efforts/ongoing"* ]]; then
+    EFFORT=$(basename "$MODIFIED_FILE" .md)
+    MSG="Update ongoing effort: $EFFORT - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"efforts/archive"* ]]; then
+    EFFORT=$(basename "$MODIFIED_FILE" .md)
+    MSG="Archive effort: $EFFORT - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"atlas/ideas"* ]]; then
+    IDEA=$(basename "$MODIFIED_FILE" .md)
+    MSG="Update idea: $IDEA - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"atlas/sources"* ]]; then
+    SOURCE=$(basename "$MODIFIED_FILE" .md)
+    MSG="Update source: $SOURCE - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"+/notes"* ]]; then
+    MSG="Inbox capture - $TIMESTAMP"
+elif [[ "$MODIFIED_FILE" == *"x/templates"* ]]; then
     MSG="Update template - $TIMESTAMP"
 else
     MSG="Vault update - $TIMESTAMP"

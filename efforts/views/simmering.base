@@ -1,0 +1,17 @@
+{
+  "name": "Simmering",
+  "query": {
+    "folder": "efforts/simmering"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Effort"},
+      {"property": "area", "label": "Area"},
+      {"property": "file.mtime", "label": "Modified"}
+    ]
+  },
+  "sort": [
+    {"property": "file.mtime", "direction": "desc"}
+  ]
+}

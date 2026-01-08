@@ -1,0 +1,17 @@
+{
+  "name": "Ongoing",
+  "query": {
+    "folder": "efforts/ongoing"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Effort"},
+      {"property": "area", "label": "Area"},
+      {"property": "file.mtime", "label": "Modified"}
+    ]
+  },
+  "sort": [
+    {"property": "file.mtime", "direction": "desc"}
+  ]
+}

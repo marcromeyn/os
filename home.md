@@ -46,27 +46,19 @@ Welcome to your Ideaverse. This is your central navigation hub.
 
 ## Inbox
 
-```base
-path: +/notes
-```
+> View: [[+/views/inbox.base|Inbox Items]]
 
 ---
 
 ## Active Efforts
 
-```base
-path: efforts/on
-```
+> View: [[efforts/views/active.base|Active Efforts]]
 
 ---
 
 ## Recent Daily Notes
 
-```base
-path: calendar/daily
-sort: file.name desc
-limit: 5
-```
+> View: [[calendar/views/daily.base|Daily Notes]]
 
 ---
 

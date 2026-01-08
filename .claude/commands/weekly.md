@@ -1,201 +1,54 @@
-# Weekly Review Command
-
-Facilitates your weekly review process by creating a new review note and helping you reflect on the past week while planning the next.
-
-## Installation
-Copy this file to `.claude/commands/weekly.md` in your vault root.
-
-## Usage
-```
-claude code /weekly
-```
-
-## Configuration
-Customize these settings for your workflow:
-
-```javascript
-// Configuration (customize these)
-const WEEKLY_FOLDER = "Goals";
-const WEEKLY_TEMPLATE = "Templates/Weekly Review Template.md";
-const REVIEW_DAY = 0; // 0=Sunday, 1=Monday, etc.
-const TIME_INVESTMENT_TARGET = 30; // minutes for review
-```
-
-## What This Command Does
-
-1. **Creates Weekly Review Note**
-   - Uses weekly review template
-   - Names it with current week's date
-   - Places in Goals folder
-
-2. **Guides Review Process**
-   - Reviews last week's accomplishments
-   - Identifies incomplete tasks
-   - Plans upcoming week
-   - Aligns with monthly goals
-
-3. **Automates Housekeeping**
-   - Archives old daily notes
-   - Updates project statuses
-   - Cleans up completed tasks
-
-## Review Process Steps
-
-### Step 1: Reflection (10 minutes)
-- Review daily notes from past week
-- Identify wins and challenges
-- Capture lessons learned
-
-### Step 2: Goal Alignment (10 minutes)
-- Check monthly goal progress
-- Adjust weekly priorities
-- Ensure alignment with yearly goals
-
-### Step 3: Planning (10 minutes)
-- Set ONE big thing for the week
-- Schedule important tasks
-- Block time for deep work
-
-## Interactive Prompts
-
-The command will guide you through:
-
-1. **"What were your top 3 wins this week?"**
-   - Celebrates progress
-   - Builds momentum
-   - Documents achievements
-
-2. **"What were your main challenges?"**
-   - Identifies obstacles
-   - Plans solutions
-   - Learns from difficulties
-
-3. **"What's your ONE big thing next week?"**
-   - Forces prioritization
-   - Creates focus
-   - Drives meaningful progress
-
-## Weekly Review Checklist
-
-The command helps you:
-- [ ] Review all daily notes
-- [ ] Process inbox items
-- [ ] Update project statuses
-- [ ] Check upcoming calendar
-- [ ] Review monthly goals
-- [ ] Plan next week's priorities
-- [ ] Block time for important work
-- [ ] Clean digital workspace
-- [ ] Archive completed items
-- [ ] Commit changes to Git
-
-## Automation Features
-
-### Auto-Archive
-Moves daily notes older than 30 days to Archives:
-```javascript
-const ARCHIVE_AFTER_DAYS = 30;
-// Automatically moves old notes to Archives/YYYY/MM/
-```
-
-### Project Status Update
-Prompts for each active project:
-```javascript
-// For each project folder:
-// - Update completion percentage
-// - Note blockers
-// - Set next actions
-```
-
-### Habit Tracking
-Calculates habit success rates:
-```javascript
-// Counts habit checkboxes from daily notes
-// Shows completion percentage
-// Identifies patterns
-```
-
-## Customization Options
-
-### Different Review Days
-```javascript
-// For Monday reviews:
-const REVIEW_DAY = 1;
-
-// For Friday reviews:
-const REVIEW_DAY = 5;
-```
-
-### Monthly Reviews
-Add monthly review trigger:
-```javascript
-const today = new Date();
-const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-if (today.getDate() === lastDayOfMonth) {
-  // Trigger monthly review too
-}
-```
-
-### Sprint-Based Reviews
-For agile workflows:
-```javascript
-const SPRINT_LENGTH = 14; // days
-const SPRINT_START = new Date('2024-01-01');
-// Calculate sprint number and adjust review
-```
-
-## Integration with Goals
-
-The command automatically:
-- Links to [[2. Monthly Goals]]
-- Updates [[1. Yearly Goals]] progress
-- Creates new week entry in review log
-
-## Best Practices
-
-### Consistent Timing
-- Same day each week
-- Same time if possible
-- Block calendar time
-- Treat as non-negotiable
-
-### Preparation
-- Clean inbox before review
-- Have calendar ready
-- Gather project updates
-- Review any feedback
-
-### Follow-through
-- Share highlights with team/family
-- Update external systems
-- Communicate changes
-- Celebrate wins
-
-## Troubleshooting
-
-### Review not created?
-- Check template exists
-- Verify folder structure
-- Ensure write permissions
-
-### Links broken?
-- Verify file naming
-- Check date formats
-- Update link syntax
-
-### Too time-consuming?
-- Use timer for each section
-- Prepare throughout week
-- Simplify template
-
-## Related Commands
-- `/daily` - Create daily note
-- `/push` - Commit to Git
-- `/onboard` - Load all context
-
+---
+description: Run weekly review process - reflect on past week and plan ahead
 ---
 
-*Command Version: 1.0*
-*Optimal Time: Sunday evening or Monday morning*
+# Weekly Review Command
 
-**Remember:** The best review is the one you actually do. Keep it simple and consistent!
+Facilitate the weekly review process using the Weekly Reviewer agent.
+
+## Instructions
+
+1. Calculate the current week number and date range
+2. Read the past 7 days of daily notes from `calendar/daily/`
+3. Read active efforts from `efforts/on/` and `efforts/ongoing/`
+4. Check inbox status at `+/notes/`
+5. Generate a weekly review following this structure:
+
+## Review Process
+
+### Phase 1: Collect
+- Gather all completed tasks from daily notes
+- Identify wins and accomplishments
+- Note challenges and obstacles
+- List incomplete tasks
+
+### Phase 2: Reflect
+- Analyze effort progress
+- Identify efforts needing state changes
+- Note patterns in productivity/energy
+- Surface misalignments
+
+### Phase 3: Plan
+- Define ONE Big Thing for next week
+- Set daily focus areas
+- Decide on carry-forward tasks
+- Process any inbox items
+
+## Output
+
+Create a weekly review note at:
+`calendar/periodic/YYYY-WNN-weekly-review.md`
+
+Include:
+- Summary of wins and challenges
+- Effort status table
+- Recommended state changes
+- Next week's plan
+- Energy check ratings
+
+## Questions to Ask
+
+- "What was your biggest win this week?"
+- "What effort needs more attention?"
+- "What's the ONE thing for next week?"
+- "Any efforts to move to simmering or archive?"

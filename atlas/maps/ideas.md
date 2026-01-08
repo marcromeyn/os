@@ -13,9 +13,7 @@ A map of your concept notes and evolving ideas.
 
 ## All Ideas
 
-```base
-path: atlas/ideas
-```
+![[atlas/views/ideas.base]]
 
 ---
 

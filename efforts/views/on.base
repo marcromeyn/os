@@ -1,16 +1,15 @@
 {
-  "name": "Active Efforts",
+  "name": "On (Active)",
   "query": {
-    "folder": "efforts",
-    "filter": "energy = \"on\" OR energy = \"ongoing\""
+    "folder": "efforts/on"
   },
   "view": {
     "type": "table",
     "columns": [
       {"property": "file.link", "label": "Effort"},
-      {"property": "energy", "label": "Energy"},
       {"property": "area", "label": "Area"},
-      {"property": "due", "label": "Due"}
+      {"property": "due", "label": "Due"},
+      {"property": "file.mtime", "label": "Modified"}
     ]
   },
   "sort": [

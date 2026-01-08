@@ -85,6 +85,13 @@ date: YYYY-MM-DD
 tags: []
 ```
 
+### Daily Notes
+```yaml
+energy: 1-10
+mood: word (calm, focused, stressed, etc.)
+focus: "ONE Big Thing for the day"
+```
+
 ### Efforts
 ```yaml
 energy: on|ongoing|simmering|sleeping
