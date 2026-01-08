@@ -1,0 +1,19 @@
+{
+  "name": "All Sources",
+  "query": {
+    "folder": "atlas/sources"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Source"},
+      {"property": "type", "label": "Type"},
+      {"property": "author", "label": "Author"},
+      {"property": "status", "label": "Status"},
+      {"property": "file.mtime", "label": "Modified"}
+    ]
+  },
+  "sort": [
+    {"property": "file.mtime", "direction": "desc"}
+  ]
+}
