@@ -1,0 +1,18 @@
+{
+  "name": "Meetings",
+  "query": {
+    "folder": "calendar/meetings"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Meeting"},
+      {"property": "date", "label": "Date"},
+      {"property": "attendees", "label": "Attendees"},
+      {"property": "project", "label": "Project"}
+    ]
+  },
+  "sort": [
+    {"property": "date", "direction": "desc"}
+  ]
+}

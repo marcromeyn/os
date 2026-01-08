@@ -1,0 +1,21 @@
+{
+  "name": "All Efforts",
+  "query": {
+    "folder": "efforts",
+    "excludeFolders": ["efforts/maps", "efforts/views"]
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Effort"},
+      {"property": "energy", "label": "Energy"},
+      {"property": "area", "label": "Area"},
+      {"property": "due", "label": "Due"},
+      {"property": "file.folder", "label": "Status"}
+    ]
+  },
+  "groupBy": "file.folder",
+  "sort": [
+    {"property": "due", "direction": "asc"}
+  ]
+}

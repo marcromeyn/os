@@ -1,0 +1,17 @@
+{
+  "name": "Inbox",
+  "query": {
+    "folder": "+/notes"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Note"},
+      {"property": "file.mtime", "label": "Modified"},
+      {"property": "tags", "label": "Tags"}
+    ]
+  },
+  "sort": [
+    {"property": "file.mtime", "direction": "desc"}
+  ]
+}

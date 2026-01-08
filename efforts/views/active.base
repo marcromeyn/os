@@ -1,0 +1,18 @@
+{
+  "name": "Active Efforts",
+  "query": {
+    "folders": ["efforts/on", "efforts/ongoing"]
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Effort"},
+      {"property": "energy", "label": "Energy"},
+      {"property": "area", "label": "Area"},
+      {"property": "due", "label": "Due"}
+    ]
+  },
+  "sort": [
+    {"property": "due", "direction": "asc"}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Daily Notes",
+  "query": {
+    "folder": "calendar/daily"
+  },
+  "view": {
+    "type": "table",
+    "columns": [
+      {"property": "file.link", "label": "Day"},
+      {"property": "date", "label": "Date"},
+      {"property": "energy", "label": "Energy"},
+      {"property": "mood", "label": "Mood"}
+    ]
+  },
+  "sort": [
+    {"property": "date", "direction": "desc"}
+  ]
+}
