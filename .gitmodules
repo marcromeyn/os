@@ -1,3 +1,0 @@
-[submodule "ai"]
-	path = ai
-	url = git@github.com:marcromeyn/os-ai.git
